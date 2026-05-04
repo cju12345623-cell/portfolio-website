@@ -96,7 +96,12 @@ projects = [
             <li>Delivered a dashboard to track AR ownership and support weekly reporting</li>
         </ul>
         """,
-        "impact": "Enabled accurate tracking of AR ownership and supported weekly reporting by combining business logic with dashboard-based analysis.",
+        "impact": """
+        <ul>
+            <li>Enabled accurate tracking of AR ownership</li>
+            <li>Supported weekly reporting by combining business logic with dashboard-based analysis</li>
+        </ul>
+        """,
         "tools": "Python, SQL, Power BI, Excel",
     },
     {
