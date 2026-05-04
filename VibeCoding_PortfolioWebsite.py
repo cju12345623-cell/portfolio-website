@@ -190,24 +190,36 @@ if page == "Home":
 elif page == "Projects":
     st.markdown('<p class="section-title">Projects</p>', unsafe_allow_html=True)
 
-    for project in projects:
-        with st.container(border=True):
-            st.subheader(project["title"])
-            st.markdown(f"**Category:** {project['category']}")
+    cols = st.columns(3)
 
-            st.markdown(project["description"], unsafe_allow_html=True)
+    for i, project in enumerate(projects):
+        with cols[i % 3]:
+            with st.container(border=True):
+                st.markdown(f"### {project['title']}")
+                st.markdown(f"**{project['category']}**")
 
-            st.markdown("**Impact:**")
-            st.markdown(project["impact"], unsafe_allow_html=True)
-
-            st.markdown(f"**Tools:** {project['tools']}")
-
-        if st.button(f"View Details: {project['title']}"):
-            st.session_state["selected_project"] = project["title"]
-            st.session_state["page"] = "Project Detail"
-            st.rerun()
+                if st.button("Open Project", key=f"open_{i}"):
+                    st.session_state["selected_project"] = project["title"]
+                    st.session_state["page"] = "Project Detail"
+                    st.rerun()
 
 elif page == "Project Detail":
+    selected_project = next(
+    (p for p in projects if p["title"] == project_name),
+    None
+    )
+    
+    if selected_project:
+        st.markdown(f"**Category:** {selected_project['category']}")
+        st.markdown("### Overview")
+        st.markdown(selected_project["description"], unsafe_allow_html=True)
+    
+        st.markdown("### Impact")
+        st.markdown(selected_project["impact"], unsafe_allow_html=True)
+    
+        st.markdown(f"**Tools:** {selected_project['tools']}")
+        st.markdown("---")
+        
     project_name = st.session_state.get("selected_project")
 
     if st.button("⬅ Back to Projects"):
