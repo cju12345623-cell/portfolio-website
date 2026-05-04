@@ -181,30 +181,11 @@ elif page == "Projects":
 elif page == "Skills":
     st.markdown('<p class="section-title">Skills</p>', unsafe_allow_html=True)
 
-    skills_df = pd.DataFrame({
-        "Skill": list(skills.keys()),
-        "Level": list(skills.values()),
-    })
-
-    fig = px.bar(
-        skills_df,
-        x="Level",
-        y="Skill",
-        orientation="h",
-        range_x=[0, 100],
-        title="Skill Overview",
-    )
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown(
-        """
-        <div class="card">
-        <b>Main strengths:</b> Data cleaning, business KPI design, Excel workflow automation, dashboard reporting, API-based process automation, and translating business questions into measurable analysis.
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
+    for category, items in skills.items():
+        st.markdown(f"**{category}**")
+        for skill in items:
+            st.markdown(f"- {skill}")
+            
 elif page == "Demo Dashboard":
     st.markdown('<p class="section-title">Demo AR Dashboard</p>', unsafe_allow_html=True)
     st.write("This sample dashboard shows how AR recovery and overdue receivables can be tracked over time.")
