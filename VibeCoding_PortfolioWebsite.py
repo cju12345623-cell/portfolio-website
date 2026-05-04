@@ -204,22 +204,6 @@ elif page == "Projects":
                     st.rerun()
 
 elif page == "Project Detail":
-    selected_project = next(
-    (p for p in projects if p["title"] == project_name),
-    None
-    )
-    
-    if selected_project:
-        st.markdown(f"**Category:** {selected_project['category']}")
-        st.markdown("### Overview")
-        st.markdown(selected_project["description"], unsafe_allow_html=True)
-    
-        st.markdown("### Impact")
-        st.markdown(selected_project["impact"], unsafe_allow_html=True)
-    
-        st.markdown(f"**Tools:** {selected_project['tools']}")
-        st.markdown("---")
-        
     project_name = st.session_state.get("selected_project")
 
     if st.button("⬅ Back to Projects"):
@@ -228,6 +212,23 @@ elif page == "Project Detail":
         st.rerun()
 
     st.markdown(f'<p class="section-title">{project_name}</p>', unsafe_allow_html=True)
+
+    selected_project = next(
+        (p for p in projects if p["title"] == project_name),
+        None
+    )
+
+    if selected_project:
+        st.markdown(f"**Category:** {selected_project['category']}")
+
+        st.markdown("### Overview")
+        st.markdown(selected_project["description"], unsafe_allow_html=True)
+
+        st.markdown("### Impact")
+        st.markdown(selected_project["impact"], unsafe_allow_html=True)
+
+        st.markdown(f"**Tools:** {selected_project['tools']}")
+        st.markdown("---")
 
     if project_name == "AR Dashboard & Receivables Analysis":
         st.markdown("### Pipeline Overview")
