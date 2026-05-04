@@ -6,7 +6,7 @@ import plotly.express as px
 # Page Configuration
 # -----------------------------
 st.set_page_config(
-    page_title="Jaeug Choi | Data Portfolio",
+    page_title="Jaeug Choi | Data Analyst & Process Automation & BI Portfolio",
     page_icon="📊",
     layout="wide",
 )
