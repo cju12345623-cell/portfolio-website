@@ -186,18 +186,16 @@ elif page == "Projects":
     st.markdown('<p class="section-title">Projects</p>', unsafe_allow_html=True)
 
     for project in projects:
-        card_html = f"""
-        <div class="card">
-            <h3>{project['title']}</h3>
-            <p><b>Category:</b> {project['category']}</p>
-            {project['description']}
-            <p><b>Impact:</b></p>
-            {project['impact'] if project['impact'].strip().startswith('<ul>') else f"<p>{project['impact']}</p>"}
-            <p class="small-text"><b>Tools:</b> {project['tools']}</p>
-        </div>
-        """
+        with st.container(border=True):
+            st.subheader(project["title"])
+            st.markdown(f"**Category:** {project['category']}")
 
-        st.markdown(card_html, unsafe_allow_html=True)
+            st.markdown(project["description"], unsafe_allow_html=True)
+
+            st.markdown("**Impact:**")
+            st.markdown(project["impact"], unsafe_allow_html=True)
+
+            st.markdown(f"**Tools:** {project['tools']}")
 
         if st.button(f"View Details: {project['title']}"):
             st.session_state["selected_project"] = project["title"]
