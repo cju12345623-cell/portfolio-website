@@ -74,18 +74,25 @@ st.sidebar.write("Data Analysis · Automation · BI Reporting")
 # -----------------------------
 projects = [
     {
-        "title": "AR Dashboard & Receivables Analysis",
+        "title": "AR Dashboard & Receivables Separation Analysis",
         "category": "Business Analytics",
-        "description": "Built structured Python/SQL workflows to analyze accounts receivable movement, overdue buckets, and recovery performance.",
-        "impact": "Reduced recurring report preparation time by over 70% and supported weekly AR fluctuation analysis.",
+        "description": """
+        <ul>
+            <li>Built a data workflow to analyze AR movement and overdue balances</li>
+            <li>Developed logic to separate receivables based on service periods (pre-2025 vs post-2025 ownership)</li>
+            <li>Handled customers with overlapping billing periods across multiple years</li>
+            <li>Delivered a dashboard to track AR ownership and support weekly reporting</li>
+        </ul>
+        """,
+        "impact": "Enabled accurate tracking of AR ownership and supported weekly reporting by combining business logic with dashboard-based analysis.",
         "tools": "Python, SQL, Power BI, Excel",
     },
     {
-        "title": "Zendesk KPI Summarizer",
-        "category": "AI Automation",
-        "description": "Developed a Python-based tool to summarize Zendesk tickets and extract KPI status using local LLM workflows.",
-        "impact": "Improved ticket review speed and helped standardize KPI reporting logic.",
-        "tools": "Python, Zendesk API, Ollama, Tkinter",
+        "title": "Electricity Billing & Cash Flow Anomaly Analysis",
+        "category": "Business Analytics",
+        "description": "Analyzed electricity consumption and billing data to identify inconsistencies between usage and charged amounts. Built logic to account for changing tariffs (e.g., monthly and seasonal kWh price changes) and compared expected vs actual billing to detect anomalies and cash flow gaps.",
+        "impact": "Found discrepancies in cash flow by comparing expected vs actual billing, and collaborated with the finance team to investigate the reasons behind them.",
+        "tools": "Python, Excel",
     },
     {
         "title": "Excel KPI Automation Workflow",
@@ -97,12 +104,9 @@ projects = [
 ]
 
 skills = {
-    "Python": 90,
-    "SQL": 80,
-    "Power BI": 85,
-    "Excel": 90,
-    "Process Automation": 88,
-    "Business Analysis": 82,
+    "Programming": ["Python", "SQL"],
+    "Data & BI": ["Power BI", "Excel"],
+    "Analytics": ["Process Automation", "Business Analysis"]
 }
 
 sample_ar_data = pd.DataFrame({
