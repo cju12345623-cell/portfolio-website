@@ -65,11 +65,24 @@ st.sidebar.title("Navigation")
 
 main_pages = ["Home", "Projects", "Skills", "Demo Dashboard", "Contact"]
 
-page = st.sidebar.radio(
+if "page" not in st.session_state:
+    st.session_state["page"] = "Home"
+
+if "nav_choice" not in st.session_state:
+    st.session_state["nav_choice"] = "Home"
+
+nav_choice = st.sidebar.radio(
     "Go to",
-    ["Home", "Projects", "Skills", "Demo Dashboard", "Contact"],
-    key="page"
+    main_pages,
+    key="nav_choice"
 )
+
+# If user clicks sidebar navigation, leave project detail page
+if nav_choice != st.session_state.get("last_nav_choice", "Home"):
+    st.session_state["page"] = nav_choice
+    st.session_state["selected_project"] = None
+
+st.session_state["last_nav_choice"] = nav_choice
 
 page = st.session_state["page"]
 
@@ -204,6 +217,7 @@ elif page == "Project Detail":
 
     if st.button("⬅ Back to Projects"):
         st.session_state["page"] = "Projects"
+        st.session_state["nav_choice"] = "Projects"
         st.session_state["selected_project"] = None
         st.rerun()
 
