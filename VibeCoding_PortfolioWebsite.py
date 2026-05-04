@@ -67,9 +67,8 @@ main_pages = ["Home", "Projects", "Skills", "Demo Dashboard", "Contact"]
 
 page = st.sidebar.radio(
     "Go to",
-    main_pages,
-    index=main_pages.index(st.session_state["page"])
-    if st.session_state["page"] in main_pages else 1
+    ["Home", "Projects", "Skills", "Demo Dashboard", "Contact"],
+    key="page"
 )
 
 if st.session_state["page"] != "Project Detail":
