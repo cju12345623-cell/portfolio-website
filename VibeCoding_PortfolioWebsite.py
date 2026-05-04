@@ -63,33 +63,36 @@ if "selected_project" not in st.session_state:
 # -----------------------------
 st.sidebar.title("Navigation")
 
-main_pages = ["Home", "Projects", "Skills", "Demo Dashboard", "Contact"]
-
-if "page" not in st.session_state:
+if st.sidebar.button("Home"):
     st.session_state["page"] = "Home"
-
-if "nav_choice" not in st.session_state:
-    st.session_state["nav_choice"] = "Home"
-
-nav_choice = st.sidebar.radio(
-    "Go to",
-    main_pages,
-    key="nav_choice"
-)
-
-# If user clicks sidebar navigation, leave project detail page
-if nav_choice != st.session_state.get("last_nav_choice", "Home"):
-    st.session_state["page"] = nav_choice
     st.session_state["selected_project"] = None
+    st.rerun()
 
-st.session_state["last_nav_choice"] = nav_choice
+if st.sidebar.button("Projects"):
+    st.session_state["page"] = "Projects"
+    st.session_state["selected_project"] = None
+    st.rerun()
+
+if st.sidebar.button("Skills"):
+    st.session_state["page"] = "Skills"
+    st.session_state["selected_project"] = None
+    st.rerun()
+
+if st.sidebar.button("Demo Dashboard"):
+    st.session_state["page"] = "Demo Dashboard"
+    st.session_state["selected_project"] = None
+    st.rerun()
+
+if st.sidebar.button("Contact"):
+    st.session_state["page"] = "Contact"
+    st.session_state["selected_project"] = None
+    st.rerun()
 
 page = st.session_state["page"]
 
 st.sidebar.markdown("---")
 st.sidebar.write("**Portfolio Focus**")
 st.sidebar.write("Data Analysis · Automation · BI Reporting")
-
 # -----------------------------
 # Data
 # -----------------------------
@@ -217,7 +220,6 @@ elif page == "Project Detail":
 
     if st.button("⬅ Back to Projects"):
         st.session_state["page"] = "Projects"
-        st.session_state["nav_choice"] = "Projects"
         st.session_state["selected_project"] = None
         st.rerun()
 
