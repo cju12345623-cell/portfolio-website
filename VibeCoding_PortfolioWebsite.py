@@ -90,8 +90,19 @@ projects = [
     {
         "title": "Electricity Billing & Cash Flow Anomaly Analysis",
         "category": "Business Analytics",
-        "description": "Analyzed electricity consumption and billing data to identify inconsistencies between usage and charged amounts. Built logic to account for changing tariffs (e.g., monthly and seasonal kWh price changes) and compared expected vs actual billing to detect anomalies and cash flow gaps.",
-        "impact": "Found discrepancies in cash flow by comparing expected vs actual billing, and collaborated with the finance team to investigate the reasons behind them.",
+        "description": """
+        <ul>
+            <li>Analyzed electricity consumption and billing data to identify mismatches between usage and charged amounts</li>
+            <li>Built logic to account for changing tariffs (e.g., monthly and seasonal kWh price variations)</li>
+            <li>Compared expected vs actual billing to detect anomalies and cash flow gaps</li>
+        </ul>
+        """,
+        "impact": """
+        <ul>
+            <li>Identified discrepancies in cash flow by comparing expected vs actual billing</li>
+            <li>Worked with the finance team to investigate underlying causes</li>
+        </ul>
+        """,
         "tools": "Python, Excel",
     },
     {
