@@ -74,11 +74,11 @@ st.sidebar.write("Data Analysis · Automation · BI Reporting")
 # -----------------------------
 projects = [
     {
-        "title": "AR Dashboard & Receivables Separation Analysis",
+        "title": "AR Dashboard & Receivables Analysis",
         "category": "Business Analytics",
         "description": """
         <ul>
-            <li>Built a data workflow to analyze AR movement and overdue balances</li>
+            <li>Built a data pipeline to analyze AR movement and overdue balances</li>
             <li>Developed logic to separate receivables based on service periods (pre-2025 vs post-2025 ownership)</li>
             <li>Handled customers with overlapping billing periods across multiple years</li>
             <li>Delivered a dashboard to track AR ownership and support weekly reporting</li>
