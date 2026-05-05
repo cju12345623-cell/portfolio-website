@@ -391,9 +391,9 @@ elif page == "Demo Dashboard":
     uploaded_file = st.file_uploader("Upload your own CSV file", type=["csv"])
 
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file, sep=None, engine="python")
         st.success("CSV uploaded successfully.")
-        st.dataframe(df, width="stretch")
+        st.dataframe(df, use_container_width=True)
     else:
         df = sample_ar_data
         st.info("Using sample AR data. Upload a CSV to test your own data.")
