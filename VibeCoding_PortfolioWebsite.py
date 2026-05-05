@@ -398,12 +398,24 @@ elif page == "Demo Dashboard":
         df = sample_ar_data
         st.info("Using sample AR data. Upload a CSV to test your own data.")
         st.dataframe(df, width="stretch")
+        
+    df.columns = df.columns.str.strip()
+    
+    df["Overdue_AR"] = pd.to_numeric(df["Overdue_AR"], errors="coerce")
+    df["Recovered_AR"] = pd.to_numeric(df["Recovered_AR"], errors="coerce")
+    
     df["Recovery_Rate"] = (
         df["Recovery_Rate"]
         .astype(str)
         .str.replace("%", "", regex=False)
-        .astype(float)
+        .str.replace(",", ".", regex=False)
     )
+    
+    df["Recovery_Rate"] = pd.to_numeric(df["Recovery_Rate"], errors="coerce")
+    
+    df = df.dropna(subset=["Month", "Overdue_AR", "Recovered_AR", "Recovery_Rate"])
+
+    
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Latest Recovered AR", f"€{df['Recovered_AR'].iloc[-1]:,.0f}")
