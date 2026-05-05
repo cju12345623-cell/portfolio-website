@@ -409,7 +409,7 @@ elif page == "Demo Dashboard":
 
     fig1 = px.line(
         df,
-        x="Month",
+        x="Year-Month",
         y=["Recovered_AR", "Overdue_AR"],
         markers=True,
         title="Recovered AR vs Overdue AR",
@@ -418,7 +418,7 @@ elif page == "Demo Dashboard":
 
     fig2 = px.line(
         df,
-        x="Month",
+        x="Year-Month",
         y="Recovery_Rate",
         markers=True,
         title="Recovery Rate Trend (%)",
