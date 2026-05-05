@@ -398,7 +398,12 @@ elif page == "Demo Dashboard":
         df = sample_ar_data
         st.info("Using sample AR data. Upload a CSV to test your own data.")
         st.dataframe(df, width="stretch")
-
+    df["Recovery_Rate"] = (
+        df["Recovery_Rate"]
+        .astype(str)
+        .str.replace("%", "", regex=False)
+        .astype(float)
+    )
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Latest Recovered AR", f"€{df['Recovered_AR'].iloc[-1]:,.0f}")
