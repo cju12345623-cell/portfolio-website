@@ -414,7 +414,12 @@ elif page == "Demo Dashboard":
         st.metric("Latest Overdue AR", f"€{df['Overdue_AR'].iloc[-1]:,.0f}")
     with col3:
         st.metric("Latest Recovery Rate", f"{df['Recovery_Rate'].iloc[-1]:.1f}%")
-
+        
+    st.write("Columns:", df.columns.tolist())
+    st.write("Shape:", df.shape)
+    st.write("Dtypes:", df.dtypes)
+    st.dataframe(df.head())
+    
     fig1 = px.line(
         df,
         x="Month",
