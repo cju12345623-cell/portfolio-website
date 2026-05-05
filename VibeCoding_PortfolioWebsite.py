@@ -399,29 +399,14 @@ elif page == "Demo Dashboard":
         st.info("Using sample AR data. Upload a CSV to test your own data.")
         st.dataframe(df, width="stretch")
         
-    df.columns = df.columns.str.strip()
-    
-    df["Overdue_AR"] = pd.to_numeric(df["Overdue_AR"], errors="coerce")
-    df["Recovered_AR"] = pd.to_numeric(df["Recovered_AR"], errors="coerce")
-    
     df["Recovery_Rate"] = (
         df["Recovery_Rate"]
         .astype(str)
         .str.replace("%", "", regex=False)
-        .str.replace(",", ".", regex=False)
+        .astype(float)
     )
-    
-    df["Recovery_Rate"] = pd.to_numeric(df["Recovery_Rate"], errors="coerce")
-    
-    df = df.dropna(subset=["Month", "Overdue_AR", "Recovered_AR", "Recovery_Rate"])
 
-    required_cols = ["Month", "Recovered_AR", "Overdue_AR", "Recovery_Rate"]
-    missing_cols = [col for col in required_cols if col not in df.columns]
     
-    if missing_cols:
-        st.error(f"Missing columns: {missing_cols}")
-        st.write("Current columns:", df.columns.tolist())
-        st.stop()
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Latest Recovered AR", f"€{df['Recovered_AR'].iloc[-1]:,.0f}")
