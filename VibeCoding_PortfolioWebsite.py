@@ -415,10 +415,39 @@ elif page == "Demo Dashboard":
     with col3:
         st.metric("Latest Recovery Rate", f"{df['Recovery_Rate'].iloc[-1]:.1f}%")
         
-    st.write("Columns:", df.columns.tolist())
-    st.write("Shape:", df.shape)
-    st.write("Dtypes:", df.dtypes)
-    st.dataframe(df.head())
+    required_cols = ["Month", "Recovered_AR", "Overdue_AR", "Recovery_Rate"]
+    
+    df.columns = (
+        df.columns.astype(str)
+        .str.strip()
+        .str.replace("\ufeff", "", regex=False)
+    )
+    
+    missing = [c for c in required_cols if c not in df.columns]
+    
+    if missing:
+        st.error(f"Missing columns: {missing}")
+        st.write("Detected columns:", df.columns.tolist())
+        st.stop()
+    
+    for col in ["Recovered_AR", "Overdue_AR", "Recovery_Rate"]:
+        df[col] = (
+            df[col]
+            .astype(str)
+            .str.replace("€", "", regex=False)
+            .str.replace("%", "", regex=False)
+            .str.replace(",", ".", regex=False)
+            .str.strip()
+        )
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+    
+    df = df.dropna(subset=required_cols)
+    
+    if df.empty:
+        st.error("Data became empty after cleaning.")
+        st.dataframe(df)
+        st.stop()
+
     
     fig1 = px.line(
         df,
