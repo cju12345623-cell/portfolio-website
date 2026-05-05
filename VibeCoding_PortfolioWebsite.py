@@ -415,7 +415,13 @@ elif page == "Demo Dashboard":
     
     df = df.dropna(subset=["Month", "Overdue_AR", "Recovered_AR", "Recovery_Rate"])
 
+    required_cols = ["Month", "Recovered_AR", "Overdue_AR", "Recovery_Rate"]
+    missing_cols = [col for col in required_cols if col not in df.columns]
     
+    if missing_cols:
+        st.error(f"Missing columns: {missing_cols}")
+        st.write("Current columns:", df.columns.tolist())
+        st.stop()
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Latest Recovered AR", f"€{df['Recovered_AR'].iloc[-1]:,.0f}")
