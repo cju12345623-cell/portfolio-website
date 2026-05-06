@@ -279,12 +279,15 @@ if page == "Home":
         <div class="card">
 
         I work in process and data management within the renewable energy sector, focusing on
-        process optimization, data quality management, operational reporting, and business analytics.
-
-        My role involves improving workflows, maintaining data accuracy, supporting system integration,
-        and implementing process improvements that help business teams make faster and more reliable decisions.
-
-        I primarily work with Python, SQL, Power BI, and Excel to build practical analytical and automation solutions.
+        process optimization, data quality management, operational analytics, KPI reporting,
+        and business data analysis.
+        
+        My role involves analyzing operational and financial data, improving workflows,
+        maintaining data accuracy, supporting system integration, and implementing process improvements
+        that help business teams make faster and more reliable data-driven decisions.
+        
+        I primarily work with Python, SQL, Power BI, and Excel to build analytical workflows,
+        dashboards, and automation solutions.
 
         </div>
         """,
