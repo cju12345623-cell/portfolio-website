@@ -592,8 +592,8 @@ elif page == "Contact":
     st.markdown(
         """
         <div class="card">
-        <p><b>Email:</b> your.email@example.com</p>
-        <p><b>LinkedIn:</b> https://www.linkedin.com/in/your-profile</p>
+        <p><b>Email:</b> cju12345623l@gmail.com</p>
+        <p><b>LinkedIn:</b> https://www.linkedin.com/in/jaeug-choi-084597208</p>
         <p><b>GitHub:</b> https://github.com/cju12345623-cell</p>
         </div>
         """,
