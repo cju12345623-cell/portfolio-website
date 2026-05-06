@@ -157,9 +157,36 @@ projects = [
 ]
 
 skills = {
-    "Programming": ["Python", "SQL"],
-    "Data & BI": ["Power BI", "Excel"],
-    "Analytics": ["Process Automation", "Business Analysis"],
+    "Programming": [
+        "Python",
+        "SQL"
+    ],
+
+    "Data & BI": [
+        "Power BI",
+        "Excel",
+        "Pandas"
+    ],
+
+    "Analytics": [
+        "Trend Analysis",
+        "Data Modeling",
+        "Consumption Profiling",
+        "Receivables Analysis",
+        "Business Analysis",
+        "Process Automation",
+        "Data Transformation",
+        "KPI Analysis"
+    ],
+
+    "Machine Learning": [
+        "Classification",
+        "Regression",
+        "Principal Component Analysis (PCA)",
+        "Random Forest",
+        "Scikit-learn",
+        "Predictive Modeling"
+    ]
 }
 
 sample_ar_data = pd.DataFrame({
