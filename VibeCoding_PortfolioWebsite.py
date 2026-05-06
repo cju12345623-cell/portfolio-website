@@ -238,39 +238,58 @@ sample_ar_data = pd.DataFrame({
 # Pages
 # -----------------------------
 if page == "Home":
-    st.markdown('<p class="main-title">Jaeug Choi</p>', unsafe_allow_html=True)
+
     st.markdown(
-        '<p class="subtitle">Process & Data Management Specialist | Data Analytics · Automation · BI Reporting</p>',
+        '<p class="main-title">Jaeug Choi</p>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        '''
+        <p class="subtitle">
+        Process & Data Management Specialist | Process Optimization · Data Analytics · BI Reporting
+        </p>
+        ''',
         unsafe_allow_html=True,
     )
 
     st.write(
-        "I build data pipelines, dashboards, and automation tools that help business teams reduce manual work, "
-        "track operational performance, and make faster decisions."
+        "I support renewable energy operations and business goals through process optimization, "
+        "data accuracy management, workflow improvement, and operational analytics."
     )
 
     col1, col2, col3 = st.columns(3)
+
     with col1:
-        st.metric("Focus Area", "AR Analytics")
+        st.metric("Report Time Saved", ">70%")
+
     with col2:
-        st.metric("Dashboard Focus", "AR / KPI")
+        st.metric("Focus Area", "Process Optimization")
+
     with col3:
         st.metric("Core Stack", "Python + SQL + BI")
 
-    st.markdown('<p class="section-title">About Me</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<p class="section-title">About Me</p>',
+        unsafe_allow_html=True
+    )
+
     st.markdown(
         """
         <div class="card">
-        I work in data management and operations, focusing on accounts receivable analytics, KPI reporting, dashboard maintenance,
-        and process automation. My strength is connecting business problems with practical technical solutions using Python, SQL,
-        Power BI, and Excel.
-        <br><br>
-        <b>Education:</b> M.Sc. in Bioinformatics (ongoing), currently completing thesis while working in data analytics.
+
+        I work in process and data management within the renewable energy sector, focusing on
+        process optimization, data quality management, operational reporting, and business analytics.
+
+        My role involves improving workflows, maintaining data accuracy, supporting system integration,
+        and implementing process improvements that help business teams make faster and more reliable decisions.
+
+        I primarily work with Python, SQL, Power BI, and Excel to build practical analytical and automation solutions.
+
         </div>
         """,
         unsafe_allow_html=True,
     )
-
 elif page == "Projects":
     st.markdown('<p class="section-title">Projects</p>', unsafe_allow_html=True)
 
