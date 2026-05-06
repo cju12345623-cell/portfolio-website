@@ -44,6 +44,38 @@ st.markdown(
         color: #666;
         font-size: 14px;
     }
+    .skill-card {
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 22px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    .skill-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    
+    .skill-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .skill-pill {
+        display: inline-block;
+        background: #f3f4f6;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #374151;
+        border: 1px solid #e5e7eb;
+        white-space: nowrap;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -424,56 +456,19 @@ elif page == "Skills":
     }
 
     for category, items in skills.items():
-
         color = skill_colors.get(category, "#111827")
 
         skill_html = "".join(
-            [
-                f"""
-                <span style="
-                    display:inline-block;
-                    background:#f3f4f6;
-                    padding:8px 14px;
-                    margin:6px 6px 6px 0;
-                    border-radius:999px;
-                    font-size:14px;
-                    font-weight:500;
-                    color:#374151;
-                    border:1px solid #e5e7eb;
-                    white-space:nowrap;
-                ">
-                    {skill}
-                </span>
-                """
-                for skill in items
-            ]
+            [f'<span class="skill-pill">{skill}</span>' for skill in items]
         )
 
         st.markdown(
             f"""
-            <div style="
-                border-radius:20px;
-                padding:24px;
-                margin-bottom:22px;
-                background:white;
-                border:1px solid #e5e7eb;
-                box-shadow:0 4px 12px rgba(0,0,0,0.05);
-            ">
-                <div style="
-                    font-size:22px;
-                    font-weight:700;
-                    margin-bottom:16px;
-                    color:{color};
-                ">
+            <div class="skill-card">
+                <div class="skill-title" style="color:{color};">
                     {category}
                 </div>
-
-                <div style="
-                    display:flex;
-                    flex-wrap:wrap;
-                    gap:8px;
-                    align-items:center;
-                ">
+                <div class="skill-wrap">
                     {skill_html}
                 </div>
             </div>
