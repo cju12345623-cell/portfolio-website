@@ -416,68 +416,70 @@ elif page == "Skills":
         unsafe_allow_html=True
     )
 
-    category_colors = {
+    skill_colors = {
         "Programming": "#2563eb",
         "Data & BI": "#7c3aed",
         "Analytics": "#059669",
         "Machine Learning": "#ea580c",
     }
 
-    cols = st.columns(2)
+    for category, items in skills.items():
 
-    categories = list(skills.items())
+        color = skill_colors.get(category, "#111827")
 
-    for idx, (category, items) in enumerate(categories):
-
-        with cols[idx % 2]:
-
-            color = category_colors.get(category, "#111827")
-
-            skill_html = ""
-
-            for skill in items:
-
-                skill_html += f'''
+        skill_html = "".join(
+            [
+                f"""
                 <span style="
                     display:inline-block;
                     background:#f3f4f6;
                     padding:8px 14px;
-                    margin:6px;
+                    margin:6px 6px 6px 0;
                     border-radius:999px;
                     font-size:14px;
                     font-weight:500;
                     color:#374151;
                     border:1px solid #e5e7eb;
+                    white-space:nowrap;
                 ">
                     {skill}
                 </span>
-                '''
+                """
+                for skill in items
+            ]
+        )
 
-            st.markdown(
-                f'''
+        st.markdown(
+            f"""
+            <div style="
+                border-radius:20px;
+                padding:24px;
+                margin-bottom:22px;
+                background:white;
+                border:1px solid #e5e7eb;
+                box-shadow:0 4px 12px rgba(0,0,0,0.05);
+            ">
                 <div style="
-                    border-radius:20px;
-                    padding:24px;
-                    margin-bottom:20px;
-                    background:white;
-                    border:1px solid #e5e7eb;
-                    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:16px;
+                    color:{color};
                 ">
-                    <div style="
-                        font-size:22px;
-                        font-weight:700;
-                        margin-bottom:18px;
-                        color:{color};
-                    ">
-                        {category}
-                    </div>
-
-                    {skill_html}
-
+                    {category}
                 </div>
-                ''',
-                unsafe_allow_html=True
-            )
+
+                <div style="
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:8px;
+                    align-items:center;
+                ">
+                    {skill_html}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 elif page == "Demo Dashboard":
     st.markdown('<p class="section-title">Demo AR Dashboard</p>', unsafe_allow_html=True)
     st.write("This sample dashboard shows how AR recovery and overdue receivables can be tracked over time.")
