@@ -218,6 +218,12 @@ skills = {
         "Random Forest",
         "Scikit-learn",
         "Predictive Modeling"
+    ],
+
+    "AI & Developer Tools": [
+        "ChatGPT",
+        "Claude",
+        "GitHub Copilot"
     ]
 }
 
