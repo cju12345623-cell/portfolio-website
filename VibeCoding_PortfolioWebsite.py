@@ -145,40 +145,6 @@ projects = [
         """,
         "tools": "Python, SQL, Power BI, Excel",
     },
-    {
-        "title": "Electricity Billing & Cash Flow Anomaly Analysis",
-        "category": "Business Analytics",
-        "description": """
-        <ul>
-
-        </ul>
-        """,
-        "impact": """
-        <ul>
-            <li>Identified discrepancies in cash flow by comparing expected vs actual billing</li>
-            <li>Worked with the finance team to investigate underlying causes</li>
-        </ul>
-        """,
-        "tools": "Python, Excel",
-    },
-    {
-    "title": "Business Data Migration & Standardization",
-    "category": "Data Management & Analytics",
-    "description": "Developed Python-based workflows to transform and standardize operational datasets into externally required Excel formats following business asset transfer.",
-    "impact": "Improved consistency and efficiency of data handover processes by restructuring, validating, and formatting large datasets based on stakeholder requirements.",
-    "tools": "Python, Pandas, Excel",
-    },
-    {
-        "title": "Excel KPI Automation Workflow",
-        "category": "Process Automation",
-        "description": """
-        <ul>
-
-        </ul>
-        """,
-        "impact": "Reduced repetitive Excel workload and improved consistency in weekly operations reporting.",
-        "tools": "Excel, Python, Power Query, VBA logic concepts",
-    },
 ]
 
 skills = {
