@@ -134,10 +134,7 @@ projects = [
         "category": "Business Analytics",
         "description": """
         <ul>
-            <li>Built a data pipeline to analyze AR movement and overdue balances</li>
-            <li>Developed logic to separate receivables based on service periods (pre-2025 vs post-2025 ownership)</li>
-            <li>Handled customers with overlapping billing periods across multiple years</li>
-            <li>Delivered a dashboard to track AR ownership and support weekly reporting</li>
+
         </ul>
         """,
         "impact": """
@@ -153,9 +150,7 @@ projects = [
         "category": "Business Analytics",
         "description": """
         <ul>
-            <li>Analyzed electricity consumption and billing data to identify mismatches between usage and charged amounts</li>
-            <li>Built logic to account for changing tariffs, such as monthly and seasonal kWh price variations</li>
-            <li>Compared expected vs actual billing to detect anomalies and cash flow gaps</li>
+
         </ul>
         """,
         "impact": """
@@ -178,9 +173,7 @@ projects = [
         "category": "Process Automation",
         "description": """
         <ul>
-            <li>Automated weekly KPI tracking and archive comparison</li>
-            <li>Implemented logic for status change detection and conditional classification</li>
-            <li>Standardized weekly KPI reporting checks</li>
+
         </ul>
         """,
         "impact": "Reduced repetitive Excel workload and improved consistency in weekly operations reporting.",
